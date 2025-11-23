@@ -28,25 +28,37 @@ Think of it as a smart assistant that can read your emails and help manage them 
 
 ## Quick Start
 
-### 1. Install Dependencies
+### Option 1: Web GUI (Recommended)
 
 ```bash
+# 1. Set up (first time only)
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
+
+# 2. Configure credentials (see SETUP.md)
+cp .env.example .env
+cp credentials.json.example credentials.json
+# Edit both files with your credentials
+
+# 3. Launch web interface
+./launch_web_gui.sh
 ```
 
-### 2. Set Up Gmail API
+Browser opens automatically at http://127.0.0.1:5000
 
-Follow the setup guide in `docs/GMAIL_SETUP.md` to:
-- Enable Gmail API in Google Cloud Console
-- Download credentials
-- Authorize the application
-
-### 3. Configure Your Agent
+### Option 2: Command Line
 
 ```bash
-cp .env.example .env
-# Edit .env with your API keys
+# Basic email analysis (read-only)
+source venv/bin/activate
+python examples/basic_agent.py
+
+# Auto-label 30 emails
+python examples/auto_label_30.py
 ```
+
+See [SETUP.md](SETUP.md) for detailed setup instructions.
 
 ### 4. Run Your First Agent
 

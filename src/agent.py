@@ -78,8 +78,24 @@ class EmailAgent:
                 }]
             )
 
+            # Get the response text
+            response_text = response.content[0].text
+
+            # Strip markdown code blocks if present
+            if response_text.strip().startswith('```'):
+                # Remove ```json or ``` from start
+                response_text = response_text.strip()
+                if response_text.startswith('```json'):
+                    response_text = response_text[7:]
+                elif response_text.startswith('```'):
+                    response_text = response_text[3:]
+                # Remove ``` from end
+                if response_text.endswith('```'):
+                    response_text = response_text[:-3]
+                response_text = response_text.strip()
+
             # Parse the JSON response
-            analysis = json.loads(response.content[0].text)
+            analysis = json.loads(response_text)
 
             return analysis
 
