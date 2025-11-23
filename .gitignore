@@ -1,11 +1,28 @@
-# Environment variables
+# ============================================
+# SENSITIVE FILES - NEVER COMMIT!
+# ============================================
+
+# Environment variables with API keys
 .env
+.env.local
+.env.*.local
 
-# Gmail API credentials (NEVER commit these!)
+# Gmail API credentials and tokens
 credentials.json
+desktop.credentials.json
+web.credentials.json
 token.json
+*.json.backup
 
+# API Keys and secrets
+*secret*
+*apikey*
+*.pem
+*.key
+
+# ============================================
 # Python
+# ============================================
 __pycache__/
 *.py[cod]
 *$py.class
@@ -17,12 +34,33 @@ venv/
 dist/
 build/
 
+# ============================================
+# Development & Debug
+# ============================================
+debug_*.py
+test_*.log
+*.tmp
+
+# ============================================
 # IDE
+# ============================================
 .vscode/
 .idea/
 *.swp
 *.swo
+.claude/
 
+# ============================================
 # OS
+# ============================================
 .DS_Store
 Thumbs.db
+.localized
+
+# ============================================
+# Flask
+# ============================================
+instance/
+.webassets-cache
+*.db
+*.sqlite

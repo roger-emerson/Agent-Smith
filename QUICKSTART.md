@@ -44,6 +44,16 @@ See `docs/GMAIL_SETUP.md` for step-by-step instructions with screenshots.
 
 ## Step 5: Run Your First Agent!
 
+### Option A: Web GUI (Recommended)
+
+```bash
+./launch_web_gui.sh
+```
+
+Browser opens automatically at http://127.0.0.1:5000
+
+### Option B: Command Line
+
 ```bash
 python examples/basic_agent.py
 ```
@@ -59,13 +69,18 @@ After that, it runs automatically!
 ## What to Do Next
 
 1. **Read the concepts**: `docs/AGENT_CONCEPTS.md`
-2. **Try the examples**:
-   - `examples/basic_agent.py` - Read and analyze emails
-   - `examples/auto_label.py` - Auto-categorize emails
-   - `examples/smart_reply.py` - Draft replies
-   - `examples/inbox_summary.py` - Get inbox overview
+2. **Try the web GUI**:
+   - Click "Connect & Fetch Emails"
+   - View AI analysis of emails
+   - Explore different prompts
+   - Check email statistics
 
-3. **Customize**:
+3. **Try the examples**:
+   - `examples/basic_agent.py` - Read and analyze emails
+   - `examples/auto_label.py` - Auto-categorize 10 emails
+   - `examples/auto_label_30.py` - Auto-categorize 30 emails
+
+4. **Customize**:
    - Edit prompts in `src/prompts.py`
    - Modify agent behavior in `src/agent.py`
    - Build your own examples!
@@ -94,11 +109,15 @@ AgentSmith/
 ├── credentials.json     ← Download from Google (don't commit!)
 ├── token.json          ← Auto-generated (don't commit!)
 ├── .env                ← Your API keys (don't commit!)
+├── web_gui.py          ← Web interface (start here!)
+├── launch_web_gui.sh   ← Launch script
 ├── src/
 │   ├── gmail_helper.py ← Gmail API wrapper
 │   ├── agent.py        ← AI agent logic
 │   └── prompts.py      ← AI prompts
-└── examples/           ← Start here!
+├── templates/
+│   └── index.html      ← Web GUI interface
+└── examples/           ← Command line examples
 ```
 
 ## Safety Tips
